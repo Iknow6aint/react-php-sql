@@ -6,6 +6,7 @@ export default function ListUser() {
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -14,6 +15,12 @@ export default function ListUser() {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        // Validate input
+        if (!inputs || !inputs.name || !inputs.date || !inputs.director || !inputs.ratings) {
+            setErrorMessage('Please fill in all fields');
+            return;
+        }
 
         console.log(inputs);
         axios.post('http://localhost/api/user/save', inputs).then(function (response) {
@@ -24,7 +31,7 @@ export default function ListUser() {
     }
     return (
         <div>
-            <h1>Create user</h1>
+            <h1>Create movies</h1>
             <form onSubmit={handleSubmit}>
                 <table cellSpacing="10">
                     <tbody>
@@ -41,7 +48,7 @@ export default function ListUser() {
                                 <label>Rattings: </label>
                             </th>
                             <td>
-                                <input type="text" name="email" onChange={handleChange} />
+                                <input type="text" name="ratings" onChange={handleChange} />
                             </td>
                         </tr>
                         <tr>
@@ -49,11 +56,21 @@ export default function ListUser() {
                                 <label>Date: </label>
                             </th>
                             <td>
-                                <input type="text" name="mobile" onChange={handleChange} />
+                                <input type="text" name="date" onChange={handleChange} />
                             </td>
                         </tr>
                         <tr>
+                            <th>
+                                <label>Director: </label>
+                            </th>
+                            <td>
+                                <input type="text" name="director" onChange={handleChange} />
+                            </td>
+                        </tr>
+                        {errorMessage && <p>{errorMessage}</p>}
+                        <tr>
                             <td colSpan="2" align="right">
+
                                 <button>Save</button>
                             </td>
                         </tr>

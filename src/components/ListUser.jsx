@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function ListUser() {
 
-    const [movies, setMovie] = useState([]);
+    const [movies, setMovies] = useState([]);
     useEffect(() => {
         getMovie();
     }, []);
@@ -12,7 +12,7 @@ export default function ListUser() {
     function getMovie() {
         axios.get('http://localhost/api/user/').then(function (response) {
             console.log(response.data);
-            setMovie(response.data);
+            setMovies(response.data);
         });
     }
 
@@ -22,6 +22,7 @@ export default function ListUser() {
             getMovie();
         });
     }
+
     return (
         <div>
             <h1>List Movies</h1>
@@ -36,15 +37,15 @@ export default function ListUser() {
                     </tr>
                 </thead>
                 <tbody>
-                    {movies.map((user, key) =>
+                    {movies.map((movies, key) =>
                         <tr key={key}>
                             <td>{movies.id}</td>
                             <td>{movies.name}</td>
-                            <td>{movies.rattings}</td>
+                            <td>{movies.ratings}</td>
                             <td>{movies.date}</td>
                             <td>
-                                <Link to={`user/${user.id}/edit`} style={{ marginRight: "10px" }}>Edit</Link>
-                                <button onClick={() => deleteUser(user.id)}>Delete</button>
+                                <Link to={`user/${movies.id}/edit`} style={{ marginRight: "10px" }}>Edit</Link>
+                                <button onClick={() => deleteUser(movies.id)}>Delete</button>
                             </td>
                         </tr>
                     )}

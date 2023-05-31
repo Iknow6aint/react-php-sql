@@ -53,7 +53,7 @@ export default function ListUser() {
                                 <label>Rattings: </label>
                             </th>
                             <td>
-                                <input value={inputs.email} type="text" name="email" onChange={handleChange} />
+                                <input value={inputs.email} type="text" name="ratings" onChange={handleChange} />
                             </td>
                         </tr>
                         <tr>
@@ -61,7 +61,15 @@ export default function ListUser() {
                                 <label>Date: </label>
                             </th>
                             <td>
-                                <input value={inputs.mobile} type="text" name="mobile" onChange={handleChange} />
+                                <input value={inputs.mobile} type="text" name="date" onChange={handleChange} />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label>Director </label>
+                            </th>
+                            <td>
+                                <input value={inputs.mobile} type="text" name="director" onChange={handleChange} />
                             </td>
                         </tr>
                         <tr>
