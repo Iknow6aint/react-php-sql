@@ -37,49 +37,51 @@ export default function ListUser() {
     return (
         <div>
             <h1>Edit user</h1>
-            <form onSubmit={handleSubmit}>
-                <table cellSpacing="10">
-                    <tbody>
-                        <tr>
-                            <th>
-                                <label>Name: </label>
-                            </th>
-                            <td>
-                                <input value={inputs.name} type="text" name="name" onChange={handleChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <label>Rattings: </label>
-                            </th>
-                            <td>
-                                <input value={inputs.email} type="text" name="ratings" onChange={handleChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <label>Date: </label>
-                            </th>
-                            <td>
-                                <input value={inputs.mobile} type="text" name="date" onChange={handleChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <label>Director </label>
-                            </th>
-                            <td>
-                                <input value={inputs.mobile} type="text" name="director" onChange={handleChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colSpan="2" align="right">
-                                <button>Save</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
+            <div className="form">
+                <form onSubmit={handleSubmit}>
+                    <table cellSpacing="10">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <label>Name: </label>
+                                </th>
+                                <td>
+                                    <input value={inputs.name} type="text" name="name" onChange={handleChange} />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label>Rattings: </label>
+                                </th>
+                                <td>
+                                    <input value={inputs.email} type="text" name="ratings" onChange={handleChange} />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label>Date: </label>
+                                </th>
+                                <td>
+                                    <input value={inputs.mobile} type="text" name="date" onChange={handleChange} />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label>Director </label>
+                                </th>
+                                <td>
+                                    <input value={inputs.mobile} type="text" name="director" onChange={handleChange} />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colSpan="2" align="right">
+                                    <button>Save</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
         </div>
     )
 }

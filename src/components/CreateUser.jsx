@@ -23,7 +23,9 @@ export default function ListUser() {
         }
 
         console.log(inputs);
-        axios.post('https://secret-investigator.000webhostapp.com/', inputs).then(function (response) {
+
+        //https://secret-investigator.000webhostapp.com/index.php/
+        axios.post('http://localhost/api/user/save', inputs).then(function (response) {
             console.log(response.data);
             navigate('/');
         });

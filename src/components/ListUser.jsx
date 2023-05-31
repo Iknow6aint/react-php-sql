@@ -18,10 +18,14 @@ export default function ListUser() {
 
     const deleteUser = (id) => {
         //https://secret-investigator.000webhostapp.com/
-        axios.delete(`http://localhost/api/user/${id}/delete`).then(function (response) {
-            console.log(response.data);
-            getMovie();
-        });
+        axios.delete(`http://localhost/api/user/${id}/delete`)
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('Failed to submit form');
+                }
+                console.log(response.data);
+                getMovie();
+            });
     }
 
     return (
