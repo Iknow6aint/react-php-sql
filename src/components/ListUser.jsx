@@ -17,6 +17,7 @@ export default function ListUser() {
     }
 
     const deleteUser = (id) => {
+        //https://secret-investigator.000webhostapp.com/
         axios.delete(`http://localhost/api/user/${id}/delete`).then(function (response) {
             console.log(response.data);
             getMovie();
@@ -24,34 +25,39 @@ export default function ListUser() {
     }
 
     return (
-        <div>
+        <div >
             <h1>List Movies</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Rattings</th>
-                        <th>Date</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {movies.map((movies, key) =>
-                        <tr key={key}>
-                            <td>{movies.id}</td>
-                            <td>{movies.name}</td>
-                            <td>{movies.ratings}</td>
-                            <td>{movies.date}</td>
-                            <td>
-                                <Link to={`user/${movies.id}/edit`} style={{ marginRight: "10px" }}>Edit</Link>
-                                <button onClick={() => deleteUser(movies.id)}>Delete</button>
-                            </td>
+            <div className="list-table">
+                <table className="content-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Rattings</th>
+                            <th>Date</th>
+                            <th>Director</th>
+                            <th>Actions</th>
                         </tr>
-                    )}
+                    </thead>
+                    <tbody className="active-row">
+                        {movies.map((movies, key) =>
+                            <tr key={key}>
+                                <td>{movies.id}</td>
+                                <td>{movies.Name}</td>
+                                <td>{movies.ratings}</td>
+                                <td>{movies.date}</td>
+                                <td>{movies.director}</td>
+                                <td>
+                                    <Link to={`user/${movies.id}/edit`} style={{ marginRight: "10px" }}>Edit</Link>
+                                    <button onClick={() => deleteUser(movies.id)}>Delete</button>
+                                </td>
+                            </tr>
+                        )}
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     )
 }

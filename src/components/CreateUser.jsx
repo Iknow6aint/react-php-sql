@@ -23,7 +23,7 @@ export default function ListUser() {
         }
 
         console.log(inputs);
-        axios.post('http://localhost/api/user/save', inputs).then(function (response) {
+        axios.post('https://secret-investigator.000webhostapp.com/', inputs).then(function (response) {
             console.log(response.data);
             navigate('/');
         });
@@ -32,51 +32,54 @@ export default function ListUser() {
     return (
         <div>
             <h1>Create movies</h1>
-            <form onSubmit={handleSubmit}>
-                <table cellSpacing="10">
-                    <tbody>
-                        <tr>
-                            <th>
-                                <label>Name: </label>
-                            </th>
-                            <td>
-                                <input type="text" name="name" onChange={handleChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <label>Rattings: </label>
-                            </th>
-                            <td>
-                                <input type="text" name="ratings" onChange={handleChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <label>Date: </label>
-                            </th>
-                            <td>
-                                <input type="text" name="date" onChange={handleChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <label>Director: </label>
-                            </th>
-                            <td>
-                                <input type="text" name="director" onChange={handleChange} />
-                            </td>
-                        </tr>
-                        {errorMessage && <p>{errorMessage}</p>}
-                        <tr>
-                            <td colSpan="2" align="right">
+            <div className="form">
+                <form onSubmit={handleSubmit}>
+                    <table cellSpacing="10">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <label>Name: </label>
+                                </th>
+                                <td>
+                                    <input type="text" name="name" onChange={handleChange} />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label>Rattings: </label>
+                                </th>
+                                <td>
+                                    <input type="text" name="ratings" onChange={handleChange} />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label>Date: </label>
+                                </th>
+                                <td>
+                                    <input type="text" name="date" onChange={handleChange} />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label>Director: </label>
+                                </th>
+                                <td>
+                                    <input type="text" name="director" onChange={handleChange} />
+                                </td>
+                            </tr>
+                            {errorMessage && <p>{errorMessage}</p>}
+                            <tr>
+                                <td colSpan="2" align="right">
 
-                                <button>Save</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
+                                    <button>Save</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
         </div>
     )
 }
